@@ -36,3 +36,21 @@
     transform: rotate(360deg);
   }
 }
+
+.book-item {
+  background-color: palegoldenrod;
+  border-radius: 20px;
+  padding: 10px 30px;
+  margin: 20px;
+}
+
+.book-item img {
+  width: 30%;
+  max-width: 200px;
+  display: block;
+  margin: 10px auto;
+}
+
+.book-item p {
+  text-align: justify;
+}
