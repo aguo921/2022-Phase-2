@@ -5,6 +5,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import TextField from "@mui/material/TextField";
 import BookList from './BookList';
 import Grid from "@mui/material/Grid";
+import Container from "@mui/material/Container";
 import './App.css';
 
 function App() {
@@ -14,7 +15,7 @@ function App() {
   const GOOGLE_BOOKS_BASE_URL = "https://www.googleapis.com/books/v1"
 
   return (
-    <div className="App">
+    <div>
       <Grid container spacing={1}>
         <Grid item xs={3} className="heading">
           <h1>Library</h1>

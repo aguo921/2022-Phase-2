@@ -4,12 +4,14 @@ import internal from "stream";
 import Rating from "@mui/material/Rating";
 import Divider from "@mui/material/Divider";
 import Tooltip from "@mui/material/Tooltip";
+import Stack from "@mui/material/Stack";
+import Paper from "@mui/material/Paper";
 
 
 function BookList(props) {
     const bookListItems = props.books.map((book, index: number) => {
         return (
-            <div key={index} className="book-item">
+            <Paper key={index} className="book-item" elevation={2}>
                 <h2>
                     {book.volumeInfo.title}
                 </h2>
@@ -32,14 +34,14 @@ function BookList(props) {
                 <p>
                     {book.volumeInfo.description}
                 </p>
-            </div>
+            </Paper>
         );
     });
 
     return (
-        <div>
+        <Stack spacing={5} className="book-list">
             {bookListItems}
-        </div>
+        </Stack>
     )
 }
 
