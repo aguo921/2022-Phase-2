@@ -4,6 +4,7 @@ import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
 import TextField from "@mui/material/TextField";
 import BookList from './BookList';
+import Grid from "@mui/material/Grid";
 import './App.css';
 
 function App() {
@@ -13,32 +14,41 @@ function App() {
   const GOOGLE_BOOKS_BASE_URL = "https://www.googleapis.com/books/v1"
 
   return (
-    <div>
-      <h1>Book Search</h1>
-
-      <div>
-        <TextField
-          id="search-bar"
-          className="text"
-          value={searchName}
-          onChange={(prop: any) => {
-            setSearchName(prop.target.value);
-          }}
-          label="Enter a book name..."
-          variant="outlined"
-          placeholder="Search..."
-          size="small"
-        />
-        <IconButton
-          aria-label="search"
-          onClick={() => {
-            search();
-          }}
-        >
-          <SearchIcon style={{fill: "blue"}} />
-        </IconButton>
-      </div>
-
+    <div className="App">
+      <Grid container spacing={1}>
+        <Grid item xs={3} className="heading">
+          <h1>Library</h1>
+        </Grid>
+        <Grid item xs={8} className="heading">
+          <TextField
+            id="search-bar"
+            className="text"
+            value={searchName}
+            onChange={(prop: any) => {
+              setSearchName(prop.target.value);
+            }}
+            label="Enter a book name..."
+            variant="filled"
+            placeholder="Search..."
+            size="small"
+            margin="normal"
+            fullWidth
+          />
+        </Grid>
+        <Grid item xs={1} className="heading">
+          <div>
+            <IconButton
+              aria-label="search"
+              onClick={() => {
+                search();
+              }}
+            >
+              <SearchIcon style={{fill: "blue"}} />
+            </IconButton>
+          </div>
+        </Grid>
+      </Grid>
+      {/* TODO: Add search filters */}
       {searchInfo === undefined ? (
         <p>Book not found</p>
       ) : (

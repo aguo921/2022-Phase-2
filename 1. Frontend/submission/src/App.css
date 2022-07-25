@@ -1,5 +1,6 @@
 .App {
-  text-align: center;
+  background-color: lightblue;
+  font-family: Helvetica, sans-serif;
 }
 
 .App-logo {
@@ -38,7 +39,7 @@
 }
 
 .book-item {
-  background-color: palegoldenrod;
+  background-color: lightcyan;
   border-radius: 20px;
   padding: 10px 30px;
   margin: 20px;
@@ -53,4 +54,15 @@
 
 .book-item p {
   text-align: justify;
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  background-color: lightskyblue;
+  height: 100px;
+}
+
+.heading h1 {
+  margin: 0 30px;
 }
