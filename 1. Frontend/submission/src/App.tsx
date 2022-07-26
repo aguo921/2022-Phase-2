@@ -17,10 +17,10 @@ function App() {
   return (
     <div>
       <Grid container spacing={1}>
-        <Grid item xs={3} className="heading">
+        <Grid item xs={5} className="heading">
           <h1>Library</h1>
         </Grid>
-        <Grid item xs={8} className="heading">
+        <Grid item xs={6} className="heading">
           <TextField
             id="search-bar"
             className="text"

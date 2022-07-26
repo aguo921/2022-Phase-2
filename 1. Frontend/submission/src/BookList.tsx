@@ -18,8 +18,6 @@ function BookList(props) {
                 <h3>
                     Author: {book.volumeInfo.authors.join(', ')}
                 </h3>
-                <Divider variant="middle" />
-                <img src={book.volumeInfo.imageLinks.thumbnail}/>
                 <Tooltip title={
                     book.volumeInfo.ratingsCount !== 1 ? (
                         `${book.volumeInfo.ratingsCount} ratings`
@@ -28,8 +26,10 @@ function BookList(props) {
                     )}
                     placement="right"
                 >
-                    <span><Rating value={book.volumeInfo.averageRating} readOnly /></span>
+                    <span><Rating precision={0.1} value={book.volumeInfo.averageRating} readOnly /></span>
                 </Tooltip>
+                <Divider />
+                <img src={book.volumeInfo.imageLinks.thumbnail}/>
                 {/* TODO: Add accordion to description*/}
                 <p>
                     {book.volumeInfo.description}
