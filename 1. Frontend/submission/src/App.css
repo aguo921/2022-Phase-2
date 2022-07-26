@@ -63,3 +63,8 @@
 .book-item {
   padding: 0 40px;
 }
+
+.filter {
+  width: 30%;
+  min-width: 100px;
+}

@@ -3,9 +3,9 @@ import {useState} from "react";
 import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
 import TextField from "@mui/material/TextField";
-import BookList from './BookList';
 import Grid from "@mui/material/Grid";
-import Container from "@mui/material/Container";
+import BookList from './BookList';
+import Filter from "./Filter";
 import './App.css';
 
 function App() {
@@ -17,10 +17,13 @@ function App() {
   return (
     <div>
       <Grid container spacing={1}>
-        <Grid item xs={5} className="heading">
+        <Grid item xs={4} className="heading">
           <h1>Library</h1>
         </Grid>
-        <Grid item xs={6} className="heading">
+        <Grid item xs={2} className="heading">
+        <Filter />
+        </Grid>
+        <Grid item xs={5} className="heading">
           <TextField
             id="search-bar"
             className="text"
