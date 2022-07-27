@@ -7,10 +7,12 @@ import Grid from "@mui/material/Grid";
 import BookList from './BookList';
 import Filter from "./Filter";
 import './App.css';
+import { queryAllByAltText } from "@testing-library/react";
 
 function App() {
   const [searchName, setSearchName] = useState("");
   const [searchInfo, setSearchInfo] = useState<any>(undefined);
+  const [searchBy, setSearchBy] = useState<undefined | string>(undefined);
 
   const GOOGLE_BOOKS_BASE_URL = "https://www.googleapis.com/books/v1"
 
@@ -21,7 +23,7 @@ function App() {
           <h1>Library</h1>
         </Grid>
         <Grid item xs={2} className="heading">
-        <Filter />
+        <Filter searchBy={searchBy} setFilter={setFilter}/>
         </Grid>
         <Grid item xs={5} className="heading">
           <TextField
@@ -31,7 +33,7 @@ function App() {
             onChange={(prop: any) => {
               setSearchName(prop.target.value);
             }}
-            label="Enter a book name..."
+            label="Search the library..."
             variant="filled"
             placeholder="Search..."
             size="small"
@@ -61,9 +63,21 @@ function App() {
     </div>
   );
 
+  function setFilter(value: string | undefined) {
+    if (value === "any") {
+      setSearchBy(undefined)
+    } else {
+      setSearchBy(value);
+    }
+  }
+
   function search() {
+    let query = searchName.split(" ").join("+");
+    if (searchBy !== undefined) {
+      query = searchBy + ":" + query;
+    }
     axios
-    .get(GOOGLE_BOOKS_BASE_URL + "/volumes?q=" + searchName.split(" ").join("+"))
+    .get(GOOGLE_BOOKS_BASE_URL + "/volumes?q=" + query)
     .then((res) => {
       setSearchInfo(res.data);
     })

@@ -2,21 +2,17 @@ import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 import Select, {SelectChangeEvent} from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
-import {useState} from "react";
 
-
-function Filter() {
-    const [searchBy, setSearchBy] = useState<undefined | string>(undefined)
-
+function Filter(props: {searchBy: string | undefined, setFilter: (a: string | undefined) => void}) {
     return (
         <FormControl variant="filled" size="small" fullWidth>
             <InputLabel id="filter-label">Search by...</InputLabel>
             <Select
                 labelId="filter-label"
-                value={searchBy}
+                value={props.searchBy}
                 label="Age"
                 onChange={(event: SelectChangeEvent) => {
-                    setSearchBy(event.target.value);
+                    props.setFilter(event.target.value);
                 }}
             >
                 <MenuItem value={"any"}>Any</MenuItem>

@@ -20,7 +20,11 @@ function BookList(props) {
                 </h3>
                 <Tooltip title={
                     book.volumeInfo.ratingsCount !== 1 ? (
-                        `${book.volumeInfo.ratingsCount} ratings`
+                        `${book.volumeInfo.ratingsCount === undefined ? (
+                            0
+                        ) : (
+                            book.volumeInfo.ratingsCount
+                        )} ratings`
                     ) : (
                         `1 rating`
                     )}
