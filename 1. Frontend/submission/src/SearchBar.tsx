@@ -1,0 +1,22 @@
+import TextField from "@mui/material/TextField";
+
+function SearchBar(props: {value: string, setValue: (a: string) => void}) {
+    return (
+        <TextField
+            id="search-bar"
+            className="text"
+            value={props.value}
+            onChange={(prop: any) => {
+                props.setValue(prop.target.value);
+            }}
+            label="Search the library..."
+            variant="filled"
+            placeholder="Search..."
+            size="small"
+            margin="normal"
+            fullWidth
+        />
+    )
+}
+
+export default SearchBar

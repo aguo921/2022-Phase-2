@@ -6,8 +6,8 @@ import TextField from "@mui/material/TextField";
 import Grid from "@mui/material/Grid";
 import BookList from './BookList';
 import Filter from "./Filter";
+import SearchBar from "./SearchBar";
 import './App.css';
-import { queryAllByAltText } from "@testing-library/react";
 
 function App() {
   const [searchName, setSearchName] = useState("");
@@ -23,22 +23,15 @@ function App() {
           <h1>Library</h1>
         </Grid>
         <Grid item xs={2} className="heading">
-        <Filter searchBy={searchBy} setFilter={setFilter}/>
+          <Filter
+            searchBy={searchBy}
+            setFilter={setFilter}
+          />
         </Grid>
         <Grid item xs={5} className="heading">
-          <TextField
-            id="search-bar"
-            className="text"
+          <SearchBar
             value={searchName}
-            onChange={(prop: any) => {
-              setSearchName(prop.target.value);
-            }}
-            label="Search the library..."
-            variant="filled"
-            placeholder="Search..."
-            size="small"
-            margin="normal"
-            fullWidth
+            setValue={setSearchName}
           />
         </Grid>
         <Grid item xs={1} className="heading">
@@ -54,7 +47,6 @@ function App() {
           </div>
         </Grid>
       </Grid>
-      {/* TODO: Add search filters */}
       {searchInfo === undefined ? (
         <p>Book not found</p>
       ) : (
