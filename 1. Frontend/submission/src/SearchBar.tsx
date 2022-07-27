@@ -19,4 +19,4 @@ function SearchBar(props: {value: string, setValue: (a: string) => void}) {
     )
 }
 
-export default SearchBar
+export default SearchBar;

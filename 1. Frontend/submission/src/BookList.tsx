@@ -9,7 +9,7 @@ import Paper from "@mui/material/Paper";
 
 
 function BookList(props: any) {
-    const bookListItems = props.books.map((book, index: number) => {
+    const bookListItems = props.books.map((book: any, index: number) => {
         return (
             <Paper key={index} className="book-item" elevation={2}>
                 <h2>

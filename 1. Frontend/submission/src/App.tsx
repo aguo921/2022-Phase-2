@@ -1,12 +1,10 @@
 import axios from "axios";
 import {useState} from "react";
-import IconButton from "@mui/material/IconButton";
-import SearchIcon from "@mui/icons-material/Search";
-import TextField from "@mui/material/TextField";
 import Grid from "@mui/material/Grid";
 import BookList from './BookList';
 import Filter from "./Filter";
 import SearchBar from "./SearchBar";
+import SearchButton from "./SearchButton";
 import './App.css';
 
 function App() {
@@ -35,16 +33,9 @@ function App() {
           />
         </Grid>
         <Grid item xs={1} className="heading">
-          <div>
-            <IconButton
-              aria-label="search"
-              onClick={() => {
-                search();
-              }}
-            >
-              <SearchIcon style={{fill: "blue"}} />
-            </IconButton>
-          </div>
+          <SearchButton
+            search={search}
+          />
         </Grid>
       </Grid>
       {searchInfo === undefined ? (
