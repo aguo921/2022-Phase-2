@@ -1,11 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import internal from "stream";
-import Rating from "@mui/material/Rating";
 import Divider from "@mui/material/Divider";
-import Tooltip from "@mui/material/Tooltip";
 import Stack from "@mui/material/Stack";
 import Paper from "@mui/material/Paper";
+
+import Ratings from "./Ratings";
 
 
 function BookList(props: any) {
@@ -18,20 +17,10 @@ function BookList(props: any) {
                 <h3>
                     Author: {book.volumeInfo.authors.join(', ')}
                 </h3>
-                <Tooltip title={
-                    book.volumeInfo.ratingsCount !== 1 ? (
-                        `${book.volumeInfo.ratingsCount === undefined ? (
-                            0
-                        ) : (
-                            book.volumeInfo.ratingsCount
-                        )} ratings`
-                    ) : (
-                        `1 rating`
-                    )}
-                    placement="right"
-                >
-                    <span><Rating precision={0.1} value={book.volumeInfo.averageRating} readOnly /></span>
-                </Tooltip>
+                <Ratings
+                    ratingsCount={book.volumeInfo.ratingsCount}
+                    averageRating={book.volumeInfo.averageRating}
+                />
                 <Divider />
                 <img src={book.volumeInfo.imageLinks.thumbnail}/>
                 {/* TODO: Add accordion to description*/}

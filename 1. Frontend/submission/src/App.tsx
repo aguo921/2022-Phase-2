@@ -1,6 +1,7 @@
 import axios from "axios";
 import {useState} from "react";
 import Grid from "@mui/material/Grid";
+import Container from "@mui/material/Container";
 import BookList from './BookList';
 import Filter from "./Filter";
 import SearchBar from "./SearchBar";
@@ -10,7 +11,7 @@ import './App.css';
 function App() {
   const [searchName, setSearchName] = useState("");
   const [searchInfo, setSearchInfo] = useState<any>(undefined);
-  const [searchBy, setSearchBy] = useState<undefined | string>(undefined);
+  const [searchBy, setSearchBy] = useState("any");
 
   const GOOGLE_BOOKS_BASE_URL = "https://www.googleapis.com/books/v1"
 
@@ -23,7 +24,7 @@ function App() {
         <Grid item xs={2} className="heading">
           <Filter
             searchBy={searchBy}
-            setFilter={setFilter}
+            setSearchBy={setSearchBy}
           />
         </Grid>
         <Grid item xs={5} className="heading">
@@ -38,25 +39,19 @@ function App() {
           />
         </Grid>
       </Grid>
-      {searchInfo === undefined ? (
-        <p>Book not found</p>
-      ) : (
-        <BookList books={searchInfo.items} />
-      )}
+      <Container maxWidth="sm">
+        {searchInfo === undefined ? (
+          <p>Book not found</p>
+        ) : (
+          <BookList books={searchInfo.items} />
+        )}
+      </Container>
     </div>
   );
 
-  function setFilter(value: string | undefined) {
-    if (value === "any") {
-      setSearchBy(undefined)
-    } else {
-      setSearchBy(value);
-    }
-  }
-
   function search() {
     let query = searchName.split(" ").join("+");
-    if (searchBy !== undefined) {
+    if (searchBy !== "any") {
       query = searchBy + ":" + query;
     }
     axios
