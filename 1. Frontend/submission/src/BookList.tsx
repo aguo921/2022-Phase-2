@@ -1,11 +1,11 @@
-import React from "react";
-import ReactDOM from "react-dom";
 import Divider from "@mui/material/Divider";
 import Stack from "@mui/material/Stack";
 import Paper from "@mui/material/Paper";
-
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Ratings from "./Ratings";
-
 
 function BookList(props: any) {
     const bookListItems = props.books.map((book: any, index: number) => {
@@ -23,16 +23,27 @@ function BookList(props: any) {
                 />
                 <Divider />
                 <img src={book.volumeInfo.imageLinks.thumbnail}/>
-                {/* TODO: Add accordion to description*/}
-                <p>
-                    {book.volumeInfo.description}
-                </p>
+                <Accordion elevation={0}>
+                    <AccordionSummary
+                        expandIcon={<ExpandMoreIcon />}
+                        aria-controls={`panel${index}-content`}
+                        id={`panel${index}-header`}
+                    />
+                    <AccordionDetails>
+                        <p>
+                            {book.volumeInfo.description}
+                        </p>
+                    </AccordionDetails>
+                </Accordion>
             </Paper>
         );
     });
 
     return (
-        <Stack spacing={5} className="book-list">
+        <Stack
+            spacing={5}
+            className="book-list"
+        >
             {bookListItems}
         </Stack>
     )

@@ -27,6 +27,7 @@ function App() {
             setSearchBy={setSearchBy}
           />
         </Grid>
+        {/*TODO: Fix alignment of filter and search bar*/}
         <Grid item xs={5} className="heading">
           <SearchBar
             value={searchName}

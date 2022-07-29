@@ -5,8 +5,14 @@ import MenuItem from "@mui/material/MenuItem";
 
 function Filter(props: {searchBy: string, setSearchBy: (a: string) => void}) {
     return (
-        <FormControl variant="filled" size="small" fullWidth>
-            <InputLabel id="filter-label">Search by...</InputLabel>
+        <FormControl
+            variant="filled"
+            size="small"
+            fullWidth
+        >
+            <InputLabel id="filter-label">
+                Search by...
+            </InputLabel>
             <Select
                 labelId="filter-label"
                 value={props.searchBy}
@@ -15,10 +21,18 @@ function Filter(props: {searchBy: string, setSearchBy: (a: string) => void}) {
                     props.setSearchBy(event.target.value);
                 }}
             >
-                <MenuItem value={"any"}>Any</MenuItem>
-                <MenuItem value={"intitle"}>Title</MenuItem>
-                <MenuItem value={"inauthor"}>Author</MenuItem>
-                <MenuItem value={"inpublisher"}>Publisher</MenuItem>
+                <MenuItem value={"any"}>
+                    Any
+                </MenuItem>
+                <MenuItem value={"intitle"}>
+                    Title
+                </MenuItem>
+                <MenuItem value={"inauthor"}>
+                    Author
+                </MenuItem>
+                <MenuItem value={"inpublisher"}>
+                    Publisher
+                </MenuItem>
             </Select>
         </FormControl>
     )
