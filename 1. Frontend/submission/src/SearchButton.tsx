@@ -9,9 +9,10 @@ function SearchButton(props: {search: (a: void) => void}) {
                 onClick={() => {
                     props.search();
                 }}
+                sx={{mr: 2}}
             >
                 <SearchIcon
-                    style={{fill: "blue"}}
+                    style={{fill: "white"}}
                 />
             </IconButton>
         </div>

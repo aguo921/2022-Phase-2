@@ -1,12 +1,15 @@
 import axios from "axios";
 import {useState} from "react";
-import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
+import AppBar from "@mui/material/AppBar";
 import Container from "@mui/material/Container";
-import BookList from './BookList';
+import Toolbar from "@mui/material/Toolbar";
+import BookList from "./BookList";
 import Filter from "./Filter";
 import SearchBar from "./SearchBar";
 import SearchButton from "./SearchButton";
-import './App.css';
+import "./App.css";
 
 function App() {
   const [searchName, setSearchName] = useState("");
@@ -17,32 +20,38 @@ function App() {
 
   return (
     <div>
-      <Grid container spacing={1}>
-        <Grid item xs={4} className="heading">
-          <h1>Library</h1>
-        </Grid>
-        <Grid item xs={2} className="heading">
-          <Filter
-            searchBy={searchBy}
-            setSearchBy={setSearchBy}
-          />
-        </Grid>
-        {/*TODO: Fix alignment of filter and search bar*/}
-        <Grid item xs={5} className="heading">
-          <SearchBar
-            value={searchName}
-            setValue={setSearchName}
-          />
-        </Grid>
-        <Grid item xs={1} className="heading">
-          <SearchButton
-            search={search}
-          />
-        </Grid>
-      </Grid>
+      <Box sx={{flexGrow: 1}}>
+        <AppBar
+          position="static"
+          sx={{padding: 1}}
+        >
+          <Toolbar>
+            <Typography
+              variant="h3"
+              component="div"
+              sx={{flexGrow: 1}}
+            >
+              Library
+            </Typography>
+            <Filter
+              searchBy={searchBy}
+              setSearchBy={setSearchBy}
+            />
+            <SearchBar
+              value={searchName}
+              setValue={setSearchName}
+            />
+            <SearchButton
+              search={search}
+            />
+          </Toolbar>
+        </AppBar>
+      </Box>
       <Container maxWidth="sm">
         {searchInfo === undefined ? (
-          <p>Book not found</p>
+          <Typography sx={{mt: 5, textAlign: "center"}}>
+            Book not found
+          </Typography>
         ) : (
           <BookList books={searchInfo.items} />
         )}

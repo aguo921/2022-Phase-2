@@ -33,38 +33,10 @@
   }
 }
 
-.book-item img {
+.book-image {
   width: 30%;
   max-width: 200px;
   display: block;
   margin: 10px auto;
-  min-width: 100px;
-}
-
-.book-item p {
-  text-align: justify;
-}
-
-.heading {
-  display: flex;
-  align-items: center;
-  background-color: lightskyblue;
-  height: 100px;
-}
-
-.heading h1 {
-  margin: 0 30px;
-}
-
-.book-list {
-  padding: 30px;
-}
-
-.book-item {
-  padding: 0 40px;
-}
-
-.filter {
-  width: 30%;
   min-width: 100px;
 }

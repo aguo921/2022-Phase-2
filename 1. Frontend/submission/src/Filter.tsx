@@ -8,7 +8,12 @@ function Filter(props: {searchBy: string, setSearchBy: (a: string) => void}) {
         <FormControl
             variant="filled"
             size="small"
-            fullWidth
+            sx={{
+                mr: 2,
+                minWidth: 0.15,
+                flexGrow: 0.5,
+                bgcolor: "white"
+            }}
         >
             <InputLabel id="filter-label">
                 Search by...
@@ -29,9 +34,6 @@ function Filter(props: {searchBy: string, setSearchBy: (a: string) => void}) {
                 </MenuItem>
                 <MenuItem value={"inauthor"}>
                     Author
-                </MenuItem>
-                <MenuItem value={"inpublisher"}>
-                    Publisher
                 </MenuItem>
             </Select>
         </FormControl>

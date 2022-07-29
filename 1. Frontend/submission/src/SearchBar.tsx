@@ -13,8 +13,12 @@ function SearchBar(props: {value: string, setValue: (a: string) => void}) {
             variant="filled"
             placeholder="Search..."
             size="small"
-            margin="normal"
-            fullWidth
+            sx={{
+                mr: 2,
+                minWidth: 0.3,
+                flexGrow: 1,
+                bgcolor: "white",
+            }}
         />
     )
 }

@@ -5,24 +5,38 @@ import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import Typography from "@mui/material/Typography";
 import Ratings from "./Ratings";
+
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
 
 function BookList(props: any) {
     const bookListItems = props.books.map((book: any, index: number) => {
         return (
-            <Paper key={index} className="book-item" elevation={2}>
-                <h2>
+            <Paper
+                key={index}
+                elevation={2}
+                sx={{p: 5}}
+            >
+                <Typography variant="h5" sx={{fontWeight: "bold"}}>
                     {book.volumeInfo.title}
-                </h2>
-                <h3>
+                </Typography>
+                <Typography variant="h6">
                     Author: {book.volumeInfo.authors.join(', ')}
-                </h3>
+                </Typography>
                 <Ratings
                     ratingsCount={book.volumeInfo.ratingsCount}
                     averageRating={book.volumeInfo.averageRating}
                 />
                 <Divider />
-                <img src={book.volumeInfo.imageLinks.thumbnail}/>
+                <img
+                    src={book.volumeInfo.imageLinks.thumbnail}
+                    className="book-image"
+                />
+                
                 <Accordion elevation={0}>
                     <AccordionSummary
                         expandIcon={<ExpandMoreIcon />}
@@ -30,9 +44,9 @@ function BookList(props: any) {
                         id={`panel${index}-header`}
                     />
                     <AccordionDetails>
-                        <p>
+                        <Typography sx={{textAlign: "justify"}}>
                             {book.volumeInfo.description}
-                        </p>
+                        </Typography>
                     </AccordionDetails>
                 </Accordion>
             </Paper>
@@ -42,7 +56,7 @@ function BookList(props: any) {
     return (
         <Stack
             spacing={5}
-            className="book-list"
+            sx={{py: 5}}
         >
             {bookListItems}
         </Stack>
