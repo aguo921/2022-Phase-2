@@ -29,18 +29,31 @@ function BookItem(props: Book) {
             <Typography variant="h5" sx={{fontWeight: "bold"}}>
                 {props.volumeInfo.title}
             </Typography>
-            <Typography variant="h6">
-                Author: {props.volumeInfo.authors.join(', ')}
-            </Typography>
+
+            {  
+                props.volumeInfo.authors ? (
+                    <Typography variant="h6">
+                        Author: {props.volumeInfo.authors.join(', ')}
+                    </Typography>
+                ) : null
+            }
+            
             <Ratings
                 ratingsCount={props.volumeInfo.ratingsCount}
                 averageRating={props.volumeInfo.averageRating}
             />
+
             <Divider />
-            <img
-                src={props.volumeInfo.imageLinks.thumbnail}
-                className="book-image"
-            />
+            {
+                props.volumeInfo.imageLinks ? (
+                    props.volumeInfo.imageLinks.thumbnail ? (
+                        <img 
+                            src={props.volumeInfo.imageLinks.thumbnail}
+                            className="book-image"
+                        />
+                    ) : null
+                ) : null
+            }
             
             <Accordion elevation={0}>
                 <AccordionSummary
@@ -48,6 +61,7 @@ function BookItem(props: Book) {
                     aria-controls={`panel${props.id}-content`}
                     id={`panel${props.id}-header`}
                 />
+
                 <AccordionDetails>
                     <Typography sx={{textAlign: "justify"}}>
                         {props.volumeInfo.description}

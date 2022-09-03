@@ -22,9 +22,9 @@ export type Book = {
         averageRating?: number,
         ratingsCount?: number,
         contentVersion?: string,
-        imageLinks: {
+        imageLinks?: {
             smallThumbnail?: string,
-            thumbnail: string,
+            thumbnail?: string,
             small?: string,
             medium?: string,
             large?: string,

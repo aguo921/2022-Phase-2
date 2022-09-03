@@ -8,17 +8,14 @@ type Props = {
     averageRating: number | undefined
 }
 
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
   title: 'Ratings',
   component: Ratings,
-  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
     backgroundColor: { control: 'color' },
   },
 } as ComponentMeta<typeof Ratings>;;
 
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: ComponentStory<typeof Ratings> = (args: Props) => <Ratings {...args} />;
 
 export const RatingOne = Template.bind({});
