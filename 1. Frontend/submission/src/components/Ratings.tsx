@@ -1,7 +1,12 @@
 import Tooltip from "@mui/material/Tooltip";
 import Rating from "@mui/material/Rating"
 
-function Ratings(props: {ratingsCount: any, averageRating: any}) {
+type Props = {
+    ratingsCount: number | undefined,
+    averageRating: number | undefined
+}
+
+function Ratings(props: Props) {
     let title = props.ratingsCount === undefined ? (
         `0 ratings`
     ) : props.ratingsCount === 1 ? (
