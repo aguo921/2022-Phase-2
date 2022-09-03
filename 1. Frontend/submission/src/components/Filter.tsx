@@ -28,13 +28,13 @@ function Filter(props: FilterProps) {
                     props.setSearchBy(event.target.value as SearchBy);
                 }}
             >
-                <MenuItem value={"any"}>
+                <MenuItem value={"any"} label="select-any">
                     Any
                 </MenuItem>
-                <MenuItem value={"intitle"}>
+                <MenuItem value={"intitle"} label="select-title">
                     Title
                 </MenuItem>
-                <MenuItem value={"inauthor"}>
+                <MenuItem value={"inauthor"} label="select-author">
                     Author
                 </MenuItem>
             </Select>
