@@ -2,6 +2,7 @@ import React from 'react';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import BookList from '../components/BookList';
+import { BookOne, BookTwo, BookThree } from './BookItem.stories';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -25,67 +26,15 @@ Empty.args = {
 export const OneItem = Template.bind({});
 OneItem.args = {
     books: [
-        {
-            volumeInfo: {
-                title: "Flowers",
-                authors: [
-                    "Vijaya Khisty Bodach"
-                ],
-                ratingsCount: 5,
-                averageRating: 4.5,
-                description: "Blah blah blah",
-                imageLinks: {
-                    thumbnail: "https://books.google.com/books?id=zyTCAlFPjgYC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
-                }
-            }
-        }
+        {...BookOne.args}
     ]
 }
 
 export const ManyItems = Template.bind({});
 ManyItems.args = {
     books: [
-        {
-            volumeInfo: {
-                title: "Flowers",
-                authors: [
-                    "Vijaya Khisty Bodach"
-                ],
-                ratingsCount: 5,
-                averageRating: 4.5,
-                description: "Blah blah blah",
-                imageLinks: {
-                    thumbnail: "https://books.google.com/books?id=zyTCAlFPjgYC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
-                }
-            }
-        },
-        {
-            volumeInfo: {
-                title: "Idiots",
-                authors: [
-                    "Idiotta"
-                ],
-                ratingsCount: 3,
-                averageRating: 2,
-                description: "Blah blah blah",
-                imageLinks: {
-                    thumbnail: "https://books.google.com/books?id=zyTCAlFPjgYC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
-                }
-            }
-        },
-        {
-            volumeInfo: {
-                title: "Trees",
-                authors: [
-                    "Greendale"
-                ],
-                ratingsCount: 10,
-                averageRating: 5,
-                description: "Blah blah blah",
-                imageLinks: {
-                    thumbnail: "https://books.google.com/books?id=zyTCAlFPjgYC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
-                }
-            }
-        }
+        {...BookOne.args},
+        {...BookTwo.args},
+        {...BookThree.args}
     ]
 }
