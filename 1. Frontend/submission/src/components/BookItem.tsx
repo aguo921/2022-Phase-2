@@ -16,7 +16,10 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 
-function BookItem(props: any) {
+// import interfaces
+import { Book } from '../interfaces'
+
+function BookItem(props: Book) {
     return (
         <Paper
             key={props.id}

@@ -1,7 +1,11 @@
 import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
 
-function SearchButton(props: {search: (a: void) => void}) {
+type Props = {
+    search: (a: void) => void
+}
+
+function SearchButton(props: Props) {
     return (
         <div>
             <IconButton

@@ -1,6 +1,11 @@
 import TextField from "@mui/material/TextField";
 
-function SearchBar(props: {value: string, setValue: (a: string) => void}) {
+type Props = {
+    value: string,
+    setValue: (a: string) => void
+}
+
+function SearchBar(props: Props) {
     return (
         <TextField
             id="search-bar"

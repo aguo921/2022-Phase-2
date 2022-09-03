@@ -16,10 +16,13 @@ import Filter from "../components/Filter";
 import SearchBar from "../components/SearchBar";
 import SearchButton from "../components/SearchButton";
 
+// import interaces
+import { SearchResults } from '../interfaces';
+
 export default function Home() {
-  const [searchName, setSearchName] = useState("");
-  const [searchInfo, setSearchInfo] = useState<any>(undefined);
-  const [searchBy, setSearchBy] = useState("any");
+  const [searchName, setSearchName] = useState<string>("");
+  const [searchInfo, setSearchInfo] = useState<SearchResults | undefined>(undefined);
+  const [searchBy, setSearchBy] = useState<string>("any");
 
   const GOOGLE_BOOKS_BASE_URL = "https://www.googleapis.com/books/v1"
 

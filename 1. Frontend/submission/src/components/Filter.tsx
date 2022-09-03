@@ -2,8 +2,14 @@ import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 import Select, {SelectChangeEvent} from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
+import { string } from "prop-types";
 
-function Filter(props: {searchBy: string, setSearchBy: (a: string) => void}) {
+type Props = {
+    searchBy: string,
+    setSearchBy: (a: string) => void
+}
+
+function Filter(props: Props) {
     return (
         <FormControl
             variant="filled"

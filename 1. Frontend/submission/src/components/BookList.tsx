@@ -10,7 +10,14 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 
-function BookList(props: any) {
+// import interfaces
+import { Book } from '../interfaces';
+
+type Props = {
+    books: Book[]
+}
+
+function BookList(props: Props) {
     return (
         <Stack
         spacing={5}
