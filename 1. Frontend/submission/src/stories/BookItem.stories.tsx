@@ -3,15 +3,17 @@ import type { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import BookItem from '../components/BookItem';
 
+import { Book } from '../interfaces';
+
 export default {
   title: 'BookItem',
   component: BookItem,
   argTypes: {
     backgroundColor: { control: 'color' },
   },
-} as ComponentMeta<typeof BookItem>;;
+} as ComponentMeta<typeof BookItem>;
 
-const Template: ComponentStory<typeof BookItem> = (args: any) => <BookItem {...args} />;
+const Template: ComponentStory<typeof BookItem> = (args: Book) => <BookItem {...args} />;
 
 export const BookOne = Template.bind({});
 BookOne.args = {

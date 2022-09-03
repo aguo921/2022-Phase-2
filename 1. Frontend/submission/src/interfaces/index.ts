@@ -75,3 +75,15 @@ export type SearchResults = {
     items: Book[],
     totalItems?: 3
 }
+
+export type SearchBy = "any" | "intitle" | "inauthor"
+
+export type FilterProps = {
+    searchBy: SearchBy,
+    setSearchBy: (a: SearchBy) => void
+}
+
+export type RatingsProps = {
+    ratingsCount: number | undefined,
+    averageRating: number | undefined
+}

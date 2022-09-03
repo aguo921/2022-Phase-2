@@ -3,10 +3,7 @@ import type { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import Ratings from '../components/Ratings';
 
-type Props = {
-    ratingsCount: number | undefined,
-    averageRating: number | undefined
-}
+import { RatingsProps } from '../interfaces';
 
 export default {
   title: 'Ratings',
@@ -16,7 +13,7 @@ export default {
   },
 } as ComponentMeta<typeof Ratings>;;
 
-const Template: ComponentStory<typeof Ratings> = (args: Props) => <Ratings {...args} />;
+const Template: ComponentStory<typeof Ratings> = (args: RatingsProps) => <Ratings {...args} />;
 
 export const RatingOne = Template.bind({});
 RatingOne.args = {

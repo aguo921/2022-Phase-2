@@ -17,12 +17,12 @@ import SearchBar from "../components/SearchBar";
 import SearchButton from "../components/SearchButton";
 
 // import interaces
-import { SearchResults } from '../interfaces';
+import { SearchResults, SearchBy } from '../interfaces';
 
 export default function Home() {
   const [searchName, setSearchName] = useState<string>("");
   const [searchInfo, setSearchInfo] = useState<SearchResults | undefined>(undefined);
-  const [searchBy, setSearchBy] = useState<string>("any");
+  const [searchBy, setSearchBy] = useState<SearchBy>("any");
 
   const GOOGLE_BOOKS_BASE_URL = "https://www.googleapis.com/books/v1"
 

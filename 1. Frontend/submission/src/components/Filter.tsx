@@ -4,12 +4,9 @@ import Select, {SelectChangeEvent} from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import { string } from "prop-types";
 
-type Props = {
-    searchBy: string,
-    setSearchBy: (a: string) => void
-}
+import { FilterProps, SearchBy } from "../interfaces";
 
-function Filter(props: Props) {
+function Filter(props: FilterProps) {
     return (
         <FormControl
             variant="filled"
@@ -27,9 +24,8 @@ function Filter(props: Props) {
             <Select
                 labelId="filter-label"
                 value={props.searchBy}
-                label="Age"
                 onChange={(event: SelectChangeEvent) => {
-                    props.setSearchBy(event.target.value);
+                    props.setSearchBy(event.target.value as SearchBy);
                 }}
             >
                 <MenuItem value={"any"}>

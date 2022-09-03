@@ -4,6 +4,12 @@ import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import BookList from '../components/BookList';
 import { BookOne, BookTwo, BookThree } from './BookItem.stories';
 
+import { Book } from '../interfaces';
+
+type Props = {
+    books: Book[]
+}
+
 export default {
   title: 'BookList',
   component: BookList,
@@ -12,7 +18,7 @@ export default {
   },
 } as ComponentMeta<typeof BookList>;;
 
-const Template: ComponentStory<typeof BookList> = (args: any) => <BookList {...args} />;
+const Template: ComponentStory<typeof BookList> = (args: Props) => <BookList {...args} />;
 
 export const Empty = Template.bind({});
 Empty.args = {
