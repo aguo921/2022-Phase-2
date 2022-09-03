@@ -1,17 +1,22 @@
+// import libraries
 import axios from "axios";
 import {useState} from "react";
+
+// import material UI components
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import AppBar from "@mui/material/AppBar";
 import Container from "@mui/material/Container";
 import Toolbar from "@mui/material/Toolbar";
-import BookList from "./BookList";
-import Filter from "./Filter";
-import SearchBar from "./SearchBar";
-import SearchButton from "./SearchButton";
-import "./App.css";
 
-function App() {
+// import components
+import Layout from '../components/Layout';
+import BookList from "../components/BookList";
+import Filter from "../components/Filter";
+import SearchBar from "../components/SearchBar";
+import SearchButton from "../components/SearchButton";
+
+export default function Home() {
   const [searchName, setSearchName] = useState("");
   const [searchInfo, setSearchInfo] = useState<any>(undefined);
   const [searchBy, setSearchBy] = useState("any");
@@ -19,7 +24,7 @@ function App() {
   const GOOGLE_BOOKS_BASE_URL = "https://www.googleapis.com/books/v1"
 
   return (
-    <div>
+    <Layout>
       <Box sx={{flexGrow: 1}}>
         <AppBar
           position="static"
@@ -56,8 +61,8 @@ function App() {
           <BookList books={searchInfo.items} />
         )}
       </Container>
-    </div>
-  );
+    </Layout>
+  )
 
   function search() {
     let query = searchName.split(" ").join("+");
@@ -75,5 +80,3 @@ function App() {
     });
   }
 }
-
-export default App;
