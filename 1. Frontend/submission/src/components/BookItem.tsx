@@ -61,7 +61,11 @@ function BookItem(props: Book) {
                     expandIcon={<ExpandMoreIcon />}
                     aria-controls={`panel${props.id}-content`}
                     id={`panel${props.id}-header`}
-                />
+                >
+                    <Typography>
+                        Description
+                    </Typography>
+                </AccordionSummary>
 
                 <AccordionDetails>
                     <Typography sx={{textAlign: "justify"}}>
