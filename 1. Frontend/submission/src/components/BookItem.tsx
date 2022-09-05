@@ -33,7 +33,7 @@ function BookItem(props: Book) {
             {  
                 props.volumeInfo.authors ? (
                     <Typography variant="h6">
-                        Author: {props.volumeInfo.authors.join(', ')}
+                        Author: {props.volumeInfo.authors.toString()}
                     </Typography>
                 ) : null
             }
@@ -50,6 +50,7 @@ function BookItem(props: Book) {
                         <img 
                             src={props.volumeInfo.imageLinks.thumbnail}
                             className="book-image"
+                            alt={`${props.volumeInfo.title} by ${props.volumeInfo.authors.toString()}`}
                         />
                     ) : null
                 ) : null

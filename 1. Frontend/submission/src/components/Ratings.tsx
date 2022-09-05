@@ -17,9 +17,11 @@ function Ratings(props: RatingsProps) {
                 ) : `0 ratings`
             }
             placement="right"
+            describeChild
         >
             <span>
                 <Rating
+                    name="rating"
                     precision={0.1}
                     value={
                         props.averageRating ? props.averageRating : null
